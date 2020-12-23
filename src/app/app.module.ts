@@ -9,9 +9,16 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {FooterComponent} from './shared/footer/footer.component';
 import {NavbarComponent} from './shared/navbar/navbar.component';
 import {SidebarComponent} from './shared/sidebar/sidebar.component';
-import { EntryExitComponent } from './entry-exit/entry-exit.component';
-import { StatisticsComponent } from './entry-exit/statistics/statistics.component';
-import { DetailComponent } from './entry-exit/detail/detail.component';
+import {EntryExitComponent} from './entry-exit/entry-exit.component';
+import {StatisticsComponent} from './entry-exit/statistics/statistics.component';
+import {DetailComponent} from './entry-exit/detail/detail.component';
+import { FormsModule } from '@angular/forms';
+import {ReactiveFormsModule} from '@angular/forms';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import {environment} from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -28,9 +35,15 @@ import { DetailComponent } from './entry-exit/detail/detail.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
