@@ -23,8 +23,6 @@ export class SidebarComponent implements OnInit {
       .catch(error => {
         console.log(error);
       });
-
-
   }
 
 }

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "entries-app-7eef4": {
+      "hosting": {
+        "admin-app": [
+          "entries-app-7eef4"
+        ]
+      }
+    }
+  }
+}
