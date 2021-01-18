@@ -1,16 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {AppState} from '../../app.reducer';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styles: [
-  ]
+  styles: []
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  subscription: Subscription;
+
+  name = '';
+
+  constructor(private store: Store<AppState>) {
+  }
 
   ngOnInit(): void {
+    this.subscription = this.store.select('auth')
+      .subscribe(({user}) => {
+        this.name = user?.name;
+      });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
 }

@@ -7,6 +7,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {Store} from '@ngrx/store';
 import {AppState} from '../app.reducer';
 import {setUser, unsetUser} from '../auth/auth.actions';
+import {unsetItems} from '../entry-exit/entry-expsnes.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ import {setUser, unsetUser} from '../auth/auth.actions';
 export class AuthService {
 
   subscription: Subscription;
+  private _user: UserModel;
 
   constructor(private auth: AngularFireAuth,
               private aFirestore: AngularFirestore,
@@ -25,13 +27,15 @@ export class AuthService {
       if (user) {
         this.subscription = this.aFirestore.doc(`${user.uid}/users`).valueChanges()
           .subscribe((userData: UserModel) => {
+            this._user = userData;
             this.store.dispatch(setUser({user: userData}));
           });
       } else {
 
         this.subscription?.unsubscribe();
-
+        this._user = null;
         this.store.dispatch(unsetUser());
+        this.store.dispatch(unsetItems());
       }
     });
   }
@@ -63,5 +67,9 @@ export class AuthService {
       .pipe(
         map(user => user !== null)
       );
+  }
+
+  get user(): UserModel {
+    return {...this._user};
   }
 }
