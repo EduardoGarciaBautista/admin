@@ -2,12 +2,12 @@ import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {map} from 'rxjs/operators';
 import {Observable, Subscription} from 'rxjs';
-import {UserModel} from '../models/user.model';
+import {UserModel} from '@models/user.model';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Store} from '@ngrx/store';
-import {AppState} from '../app.reducer';
-import {setUser, unsetUser} from '../auth/auth.actions';
-import {unsetItems} from '../entry-exit/entry-expsnes.actions';
+import {AppState} from '@reducers/app.reducer';
+import {setUser, unsetUser} from '@actions/auth.actions';
+import {unsetItems} from '@actions/entry-expsnes.actions';
 
 @Injectable({
   providedIn: 'root'

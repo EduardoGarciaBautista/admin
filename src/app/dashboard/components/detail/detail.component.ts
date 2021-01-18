@@ -1,10 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {AppState} from '../../app.reducer';
-import {EntryExpenseModel} from '../../models/entry-expense.model';
+import {AppState} from '@reducers/app.reducer';
+import {EntryExpenseModel} from '@models/entry-expense.model';
 import {Subscription} from 'rxjs';
-import {EntryExpenseService} from '../../services/entry-expense.service';
+import {EntryExpenseService} from '@services/entry-expense.service';
 import Swal from 'sweetalert2';
+import {AppStateWithEntry} from '@reducers/entry-expense.reducer';
 
 @Component({
   selector: 'app-detail',
@@ -16,7 +17,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   entryExpense: EntryExpenseModel[] = [];
   subscription: Subscription;
 
-  constructor(private store: Store<AppState>,
+  constructor(private store: Store<AppStateWithEntry>,
               private entryService: EntryExpenseService) {
   }
 

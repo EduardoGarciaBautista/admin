@@ -3,8 +3,8 @@ import {Store} from '@ngrx/store';
 import {filter} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
 import {EntryExpenseService} from '../services/entry-expense.service';
-import {setItems} from '../entry-exit/entry-expsnes.actions';
-import {AppState} from '../app.reducer';
+import {setItems} from '../actions/entry-expsnes.actions';
+import {AppState} from '../reducers/app.reducer';
 
 @Component({
   selector: 'app-dashboard',

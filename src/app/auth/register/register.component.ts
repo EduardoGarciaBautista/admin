@@ -1,14 +1,14 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../services/auth.service';
+import {AuthService} from '@services/auth.service';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2';
 
 import {Store} from '@ngrx/store';
-import {AppState} from '../../app.reducer';
+import {AppState} from '@reducers/app.reducer';
 import {Subscription} from 'rxjs';
 
-import * as ui from '../../shared/ui.actions';
+import * as ui from '../../actions/ui.actions';
 
 @Component({
   selector: 'app-register',

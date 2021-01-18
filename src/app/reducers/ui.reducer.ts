@@ -1,5 +1,5 @@
 import {createReducer, on} from '@ngrx/store';
-import {isLoading, stopLoading} from './ui.actions';
+import {isLoading, stopLoading} from '@actions/ui.actions';
 
 export interface State {
   isLoading: boolean;

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {EntryExpenseModel} from '../models/entry-expense.model';
+import {EntryExpenseModel} from '@models/entry-expense.model';
 import {AuthService} from './auth.service';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';

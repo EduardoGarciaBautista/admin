@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {AuthService} from '../../services/auth.service';
+import {AuthService} from '@services/auth.service';
 import {Router} from '@angular/router';
 import {Store} from '@ngrx/store';
-import {AppState} from '../../app.reducer';
+import {AppState} from '@reducers/app.reducer';
 import {Subscription} from 'rxjs';
 
 @Component({
@@ -30,7 +30,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   logOut(): void {
     this.authService.logOut().then(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/auth']);
     })
       .catch(error => {
         console.log(error);

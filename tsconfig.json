@@ -15,6 +15,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@actions/*": ["src/app/actions/*"],
+      "@models/*": ["src/app/models/*"],
+      "@reducers/*": ["src/app/reducers/*"],
+      "@services/*": ["src/app/services/*"],
+      "@shared/*": ["src/app/shared/*"]
+    }
   }
 }

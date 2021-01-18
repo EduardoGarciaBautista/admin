@@ -1,9 +1,14 @@
 import {createReducer, on} from '@ngrx/store';
-import {setItems, unsetItems} from './entry-expsnes.actions';
-import {EntryExpenseModel} from '../models/entry-expense.model';
+import {setItems, unsetItems} from '@actions/entry-expsnes.actions';
+import {EntryExpenseModel} from '@models/entry-expense.model';
+import {AppState} from '@reducers/app.reducer';
 
 export interface State {
   items: EntryExpenseModel[];
+}
+
+export interface AppStateWithEntry extends AppState {
+  entry: State;
 }
 
 const initialState: State = {

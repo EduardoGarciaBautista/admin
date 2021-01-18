@@ -1,5 +1,5 @@
 import {Pipe, PipeTransform} from '@angular/core';
-import {EntryExpenseModel} from '../models/entry-expense.model';
+import {EntryExpenseModel} from '../../models/entry-expense.model';
 
 @Pipe({
   name: 'entryOrder'

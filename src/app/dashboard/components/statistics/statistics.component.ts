@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
-import {AppState} from '../../app.reducer';
-import {EntryExpenseModel} from '../../models/entry-expense.model';
+import {EntryExpenseModel} from '@models/entry-expense.model';
 import {Subscription} from 'rxjs';
 import {Label, MultiDataSet} from 'ng2-charts';
+import {AppStateWithEntry} from '@reducers/entry-expense.reducer';
 
 @Component({
   selector: 'app-statistics',
@@ -23,8 +23,7 @@ export class StatisticsComponent implements OnInit, OnDestroy {
   doughnutChartLabels: Label[] = ['Entries', 'Expenses'];
   doughnutChartData: MultiDataSet = [[]];
 
-  constructor(private store: Store<AppState>) {
-
+  constructor(private store: Store<AppStateWithEntry>) {
   }
 
   ngOnInit(): void {
